@@ -1,0 +1,22 @@
+{
+  "name": "my-vite-app",
+  "homepage": "https://kingkartick.github.io/NextgenerationPortFolio/",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "vite": "^6.0.5"
+  },
+  "dependencies": {
+    "gh-pages": "^6.2.0",
+    "three": "^0.171.0",
+    "three-msdf-text-utils": "^1.1.7"
+  }
+}
