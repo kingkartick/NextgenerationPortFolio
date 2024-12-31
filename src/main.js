@@ -89,125 +89,6 @@ let mysketch = new sketch();
 
 
 
-// const pecockmeshpos =  mysketch.pecockmesh.position;
-// const pecockmeshrotz =  mysketch.pecockmesh.position.x;
-// const pecockmeshtxt  = mysketch.mymaterial.uniforms.uTexture.value;
-// const pecockmeshprog  =  mysketch.mymaterial.uniforms.uProgress.value;
-
-
-
-function setupScrollanimation(){
-  // const tl = gsap.timeline()
-  // // FIRST SECTION
-
-  // tl.to(pecockmeshpos, {
-  //   x: 1,
-  //   y: 0,
-  //   z: 12,
-  //   scrollTrigger: {
-  //     trigger: ".animapoint1",
-  //     start: "top top ",
-  //     end: "top bottom",
-  //     scrub: true,
-  //     immediateRender: false,
-  //     // Start uProgress animation when this animation ends
-  //     onLeave: () => {tl.fromTo(mysketch.mymaterial.uniforms.uProgress, {
-  //       value: 1
-  //     }, {
-  //       value: 0,
-  //       duration: 1.5
-  //     }), console.log(" i am in  .animapoint1")}
-  //   ,
-  //   onEnterBack: () => {tl.fromTo(mysketch.mymaterial.uniforms.uProgress, {
-  //     value: 0
-  //   }, {
-  //     value: 1,
-  //     duration: 1.5
-  //   }), console.log(" i am in  .animapoint1")}
-
-  // }
-    
-  // });
-
-  // tl
-  // .to(pecockmeshpos, {x:  -22, y:  0, z: 1,
-  //     scrollTrigger: {
-  //         trigger: ".animapoint2",
-  //         start:" top bottom",
-  //          scrub: true,
-  //         immediateRender: false,
-  //         onEnter: () => {tl.fromTo(mysketch.mymaterial.uniforms.uProgress, {
-  //           value: 0
-  //         }, {
-  //           value: 1,
-  //           duration: 1
-  //         }), console.log(" i am in  .animapoint2")},
-        
-  //         onEnterBack: () => {tl.fromTo(mysketch.mymaterial.uniforms.uProgress, {
-  //           value: 0
-  //         }, {
-  //           value: 1,
-  //           duration: 1.5
-  //         }), console.log(" i am in  .animapoint2")},
-  //         onLeave: () => {tl.fromTo(mysketch.mymaterial.uniforms.uProgress, {
-  //           value: 1
-  //         }, {
-  //           value: 0,
-  //           duration: 1.5
-  //         }), console.log(" i am in  .animapoint1")}
-    
-               
-  // }});
-
-
-  // tl
-  // .to(pecockmeshpos, {x:  -18, y:  0, z: 0.19 ,
-  //     scrollTrigger: {
-  //         trigger: ".animapoint3",
-  //         start:"top bottom",
-  //         end: "top top", scrub: true,
-  //         immediateRender: false, 
-  //         onLeave: () => tl.fromTo(mysketch.mymaterial.uniforms.uProgress, {
-  //           value: 1
-  //         }, {
-  //           value: 0,
-  //           duration: 1.5
-  //         }),
-  //         onLeaveBack: () => {tl.fromTo(mysketch.mymaterial.uniforms.uProgress, {
-  //           value: 0
-  //         }, {
-  //           value: 1,
-  //           duration: 1.5
-  //         }), console.log(" i am in  .animapoint2")}
-  // }});
-
-
-  // tl
-  // .to(pecockmeshpos, {x:  -88, y:  0, z: 0.19 ,
-  //     scrollTrigger: {
-  //         trigger: ".animapoint4",
-  //         start:"top bottom",
-  //         end: "top top", scrub: true,
-  //         immediateRender: false,
-  //         onLeave: () => tl.fromTo(mysketch.mymaterial.uniforms.uProgress, {
-  //           value: 0
-  //         }, {
-  //           value: 1,
-  //           duration: 1.5
-  //         }),
-  //         onEnterBack: () => {tl.fromTo(mysketch.mymaterial.uniforms.uProgress, {
-  //           value: 1
-  //         }, {
-  //           value: 0,
-  //           duration: 1.5
-  //         }), console.log(" i am in  .animapoint2")}
-          
-  // }});
-
-}
-
-
-setupScrollanimation()
 
 
 
@@ -218,37 +99,11 @@ function moveCamera(currentScrollPosition) {
   console.log('this is value of t ' , t);
  
   
-  if (( t <-1 && t >  -2000.5 )) {
-    // mysketch.pecockmesh.rotation.z += 0.01;
 
-  }
-  if (( t <-1234 && t > -1934.5 )) {
-   
-    // console.log(mysketch.pecockmesh.position)
-    // mysketch.pecockmesh.position.x = 2;
-    // mysketch.pecockmesh.position.y = 0;
-    // mysketch.pecockmesh.position.z = 0.09;
-  }
-  if (t < -543.00947867298578 && t > -2000.5){
-    
 
-    // mysketch.mymaterial.uniforms.uTexture.value = mysketch.pslidetextures[0];
 
-  }
-  // if (t < -1934.5 && t > -2000.5){
-  //   mysketch.cube.material.color.set('#999D9E')
 
-  //   // mysketch.mymaterial.uniforms.uTexture.value = mysketch.pslidetextures[0];
-
-  // }
-
-  if (t < -2034.5 && t > -2100.5){
-
-    // mysketch.mymaterial.uniforms.uTexture.value = mysketch.pslidetextures[0];
-    
-  }
-
-  if ((t < -2234.5 && t > -3880.34)) {
+  if ((t < -2204.5 && t > -3880.34)) {
 
     // mysketch.pecockmesh.rotation.z = 0;
     // mysketch.pecockmesh.position.x = -22;

@@ -1,17 +1,9 @@
-.smooth-scroll {
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translate3d(0, 0, 0); /* Force GPU rendering */
-}
 
 .animated-element {
   will-change: transform;
 }
 
-@font-face {
-  font-family: Dspoints;
-  src: url(./fonta/BPdots.otf);
-}
+
 @font-face {
   font-family: alexcursive;
   src: url(./fonta/AlexBrush-Regular.ttf);
@@ -202,7 +194,7 @@ canvas {
 .scrolling-text {
   position: fixed;
   
-  top: 6.5%;
+  top: 6.2%;
   
   bottom: 10%;
   left: 0;
@@ -723,7 +715,7 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
   }
   
   .containerfrimg {
-    height: 57vh;
+    height: 76vh;
     width: 100vw;
     background-color: #999D9E;
     overflow: hidden;
@@ -1111,7 +1103,13 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
 
 @media only screen and (max-width:455px) {
 
- 
+  .containerfrimg {
+    height: 56vh;
+    width: 100vw;
+    background-color: #999D9E;
+    overflow: hidden;
+    position: relative;
+  }
 
   footer {
     width: 97vw;
