@@ -24,6 +24,8 @@ export default  class sketch{
     constructor(){
         this.renderer = new THREE.WebGLRenderer( {canvas: document.querySelector('#bg') , antialias: true , alpha:true } );
         this.renderer.setSize( window.innerWidth, window.innerHeight );
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setPixelRatio(window.devicePixelRatio); // Set pixel ratio
       
         
         
@@ -125,6 +127,8 @@ export default  class sketch{
         this.camera.bottom = frustumSize / -2;
         
         this.camera.updateProjectionMatrix();
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setPixelRatio(window.devicePixelRatio);
 
         if (window.innerWidth < 500) {
             // Custom position for small screens
@@ -204,7 +208,7 @@ export default  class sketch{
       // Strokes
       uStrokeColor: { value: new THREE.Color("#FFD700") },
       uStrokeOutsetWidth: { value: 1.8 },
-      uStrokeInsetWidth: { value: 0.5 },
+      uStrokeInsetWidth: { value: 0.9 },
       ustroke : {value:true}
         },
         vertexShader:   textvert,

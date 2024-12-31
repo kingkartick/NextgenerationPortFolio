@@ -1,3 +1,12 @@
+.smooth-scroll {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0); /* Force GPU rendering */
+}
+
+.animated-element {
+  will-change: transform;
+}
 
 @font-face {
   font-family: Dspoints;
@@ -193,7 +202,7 @@ canvas {
 .scrolling-text {
   position: fixed;
   
-  top: 6.6%;
+  top: 6.5%;
   
   bottom: 10%;
   left: 0;
@@ -299,6 +308,9 @@ canvas {
   color: #333;
   line-height: 1.2;
 }
+
+
+
 .container {
   display: flex;
   justify-content: center;
@@ -752,9 +764,9 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
   .quote {
     position: absolute;
     /* color: #ffdea7; */
-    color: whitesmoke;
+    color: white;
 
-    -webkit-text-stroke: 0.2px black;  /* For WebKit browsers */
+    -webkit-text-stroke: 0.2px #bffdee;  /* For WebKit browsers */
 
     font-family: Arial, sans-serif;
     font-weight: 900;
@@ -789,6 +801,12 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
       height: max-content; 
     }
    @media all and (max-width: 500px) {
+    .navbar {
+      padding: 9px 13px;
+      background-color: white;
+
+  
+    }
     .content-wrapper {
       flex-direction: column;
     }
@@ -940,7 +958,7 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
 
     .scrolling-text {
       position: fixed;
-      top:  6.6%;
+      top:  6.2%;
       bottom: 10%;
     }
     .location-text {
@@ -949,10 +967,46 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
   }
   
   .job-title {
+    font-weight: 600;
     font-size:24.8px;
-    top: 5.2%;
+     top: 4.8%;
     right: 21%;
   }
+  .text-effect {
+    
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .text-effect::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      #ff0000,
+      #ff7f00,
+
+      #0000ff,
+      #4b0082,
+      #8f00ff,
+      #ff0000
+    );
+    background-size: 200% 100%;
+    animation: rainbow-move 2s linear infinite;
+  }
+  @keyframes rainbow-move {
+    0% {
+      background-position: 0% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
 
 
     header { font-size: .75rem; }
@@ -1027,6 +1081,8 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
 @media only screen and (min-width:455px) {
 
 
+
+
   html, body {
 
     margin-left: 4px;
@@ -1054,6 +1110,8 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
 
 
 @media only screen and (max-width:455px) {
+
+ 
 
   footer {
     width: 97vw;

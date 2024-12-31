@@ -36,16 +36,22 @@ window.addEventListener('load', simulateLoading);
 gsap.registerPlugin(ScrollTrigger);
 
 const scroll2 = new LocomotiveScroll({
-
   el: document.querySelector('.smooth-scroll'),
   smooth: true,
+  multiplier: 0.5,  // Reduce scrolling speed
+  lerp: 0.08,       // Adjust the lerp (Linear Interpolation) value
   smartphone: {
-    smooth: true
+    smooth: true,
+    multiplier: 0.05, // Specific multiplier for mobile
+    lerp: 0.11       // Slightly higher lerp for mobile
   },
   tablet: {
-    smooth: true
-  }
- 
+    smooth: true,
+    multiplier: 0.7,
+    lerp: 0.1
+  },
+  getDirection: true,
+  getSpeed: true
 });
 
 // Use the Locomotive Scroll instance's 'scroll' event
@@ -77,7 +83,6 @@ ScrollTrigger.scrollerProxy(".smooth-scroll", {
 ScrollTrigger.addEventListener("refresh", () => scroll2.update());
 ScrollTrigger.defaults({ scroller: ".smooth-scroll" });
 // --- SETUP END ---
-
 
 let mysketch = new sketch();
 
