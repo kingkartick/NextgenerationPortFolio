@@ -42,8 +42,8 @@ const scroll2 = new LocomotiveScroll({
   lerp: 0.08,       // Adjust the lerp (Linear Interpolation) value
   smartphone: {
     smooth: true,
-    multiplier: 0.05, // Specific multiplier for mobile
-    lerp: 0.11       // Slightly higher lerp for mobile
+    multiplier: 0.8, // Specific multiplier for mobile
+         // Slightly higher lerp for mobile
   },
   tablet: {
     smooth: true,
