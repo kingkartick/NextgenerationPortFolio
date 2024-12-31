@@ -194,13 +194,48 @@ canvas {
 .scrolling-text {
   position: fixed;
   
-  top: 6.2%;
+  top: 6%;
   
   bottom: 10%;
   left: 0;
   right: 0;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.text-effect {
+    
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.text-effect::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #ff7f00,
+
+    #0000ff,
+    #4b0082,
+    #8f00ff,
+    #ff0000
+  );
+  background-size: 200% 100%;
+  animation: rainbow-move 2s linear infinite;
+}
+@keyframes rainbow-move {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .text-content {
@@ -260,7 +295,7 @@ canvas {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  margin: 20px 40px;
   background-color: #999D9E; /* Slightly transparent light gray */
   backdrop-filter: blur(5px); /* Adds a blur effect to the background */
   z-index: 1000;
@@ -965,40 +1000,7 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
      top: 4.8%;
     right: 21%;
   }
-  .text-effect {
-    
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .text-effect::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(
-      to right,
-      #ff0000,
-      #ff7f00,
-
-      #0000ff,
-      #4b0082,
-      #8f00ff,
-      #ff0000
-    );
-    background-size: 200% 100%;
-    animation: rainbow-move 2s linear infinite;
-  }
-  @keyframes rainbow-move {
-    0% {
-      background-position: 0% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
-  }
+  
 
 
 
