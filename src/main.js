@@ -1,5 +1,5 @@
 
-import { lerp } from "three/src/math/MathUtils.js";
+
 import sketch from "./threed.js";
 document.body.style.overflowX = "hidden";
 
@@ -33,8 +33,9 @@ function simulateLoading() {
 
 window.addEventListener('load', simulateLoading);
 
-gsap.registerPlugin(ScrollTrigger);
 
+
+// Initialize LocomotiveScroll
 const scroll2 = new LocomotiveScroll({
   el: document.querySelector('.smooth-scroll'),
   smooth: true,
@@ -43,7 +44,7 @@ const scroll2 = new LocomotiveScroll({
   smartphone: {
     smooth: true,
     multiplier: 0.8, // Specific multiplier for mobile
-         // Slightly higher lerp for mobile
+    lerp: 0.1        // Slightly higher lerp for mobile
   },
   tablet: {
     smooth: true,
@@ -55,34 +56,21 @@ const scroll2 = new LocomotiveScroll({
 });
 
 // Use the Locomotive Scroll instance's 'scroll' event
-scroll2.on('scroll',  (instance) => {
- 
-
+scroll2.on('scroll', (instance) => {
   const currentScrollPosition = instance.scroll.y;
- 
 
+  // Example: Trigger animations based on scroll position
   for (let i = 0; i < carsul.length; i++) {
-    // Use the distanceFromTop value to trigger your animation
-    transform(carsul[i],currentScrollPosition);
+    transform(carsul[i], currentScrollPosition);
   }
-},ScrollTrigger.update);
 
-// tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
-ScrollTrigger.scrollerProxy(".smooth-scroll", {
-  scrollTop(value) {
-    return arguments.length ? scroll2.scrollTo(value, {duration: 0, disableLerp: true}) : scroll2.scroll.instance.scroll.y;
-  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-  getBoundingClientRect() {
-    return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-  },
-  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-  pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
+  // Update ScrollTrigger on every scroll
+
 });
 
-// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
-ScrollTrigger.addEventListener("refresh", () => scroll2.update());
-ScrollTrigger.defaults({ scroller: ".smooth-scroll" });
-// --- SETUP END ---
+
+
+
 
 let mysketch = new sketch();
 
