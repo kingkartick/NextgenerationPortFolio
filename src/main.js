@@ -24,7 +24,7 @@ function simulateLoading() {
               preloader.style.transform = 'translateY(-100%)';
               setTimeout(() => {
                   preloader.style.display = 'none';
-                  document.getElementById('content').style.display = 'block';
+                
               }, 500);
           }, 500);
       }
@@ -34,45 +34,108 @@ function simulateLoading() {
 window.addEventListener('load', simulateLoading);
 
 
-
-// Initialize LocomotiveScroll
-const scroll2 = new LocomotiveScroll({
-  el: document.querySelector('.smooth-scroll'),
-  smooth: true,
-  multiplier: 0.5,  // Reduce scrolling speed
-  lerp: 0.08,       // Adjust the lerp (Linear Interpolation) value
-  smartphone: {
-    smooth: true,
-    multiplier: 0.8, // Specific multiplier for mobile
-    lerp: 0.1        // Slightly higher lerp for mobile
-  },
-  tablet: {
-    smooth: true,
-    multiplier: 0.7,
-    lerp: 0.1
-  },
-  getDirection: true,
-  getSpeed: true
-});
-
-// Use the Locomotive Scroll instance's 'scroll' event
-scroll2.on('scroll', (instance) => {
-  const currentScrollPosition = instance.scroll.y;
-
-  // Example: Trigger animations based on scroll position
-  for (let i = 0; i < carsul.length; i++) {
-    transform(carsul[i], currentScrollPosition);
-  }
-
-  // Update ScrollTrigger on every scroll
-
-});
-
-
-
-
-
 let mysketch = new sketch();
+const carsul = [...document.querySelectorAll('.carousel')]
+
+
+
+// Add scroll event listener
+
+window.addEventListener('scroll',(e)=>{
+  const currentScrollPosition = window.scrollY;
+  for(let i = 0; i<carsul.length;i++){
+      transform(carsul[i],currentScrollPosition)
+  }
+})
+
+
+
+// Register the ScrollTrigger plugin
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+// Pin the Achievements text
+gsap.to("#Achivements p", {
+  scrollTrigger: {
+      trigger: "#Achivements", // The element to trigger the animation
+      start: "top top", // When the top of the blockquote hits the top of the viewport
+      end: "+=4500", // The end point (scrolling down 4500px)
+      pin: true, // Pin the element
+
+      scrub: 1, // Smooth scrubbing
+  },
+  duration: 1, // Duration of the animation (not very relevant for pinning)
+  ease: "none", // No easing for pinning
+});
+
+// Select all elements with the animated-heading class
+const animatedHeadings = document.querySelectorAll('.animated-heading');
+
+// Create animation for each heading
+animatedHeadings.forEach(heading => {
+  gsap.to(heading, {
+    scrollTrigger: {
+      trigger: heading,
+      start: "top 80%", // Starts animation when the heading is 80% from the top of the viewport
+      end: "bottom 20%",
+      toggleActions: "play none none reverse",
+      // markers: true, // Enable for debugging
+    },
+    x: 0, // Animate to original position
+    opacity: 1,
+    duration: 1.2,
+    ease: "power4.out",
+     // Cleans up inline styles after animation
+  });
+});
+
+
+// Select all containerfrimg elements
+const containers = document.querySelectorAll('.containerfrimg');
+
+// Loop through each container and create individual animations
+containers.forEach((container) => {
+  // Animate the quote inside this container
+// Set initial state for the quote
+gsap.set(container.querySelector(".quote"), {
+    x: '100vw', // Start position from right side of screen
+    opacity: 0
+});
+
+// Animate the quote with slower speed
+gsap.to(container.querySelector(".quote"), {
+    scrollTrigger: {
+        trigger: container, // Use the current container as the trigger
+        start: "top center", // Starts animation when top of container hits center of viewport
+        end: "center center",
+        scrub: 2, // Increased scrub value for slower response to scroll
+    },
+    x: 0, // Final position (original position)
+    opacity: 1,
+    duration: 2.5, // Increased duration for slower animation
+    ease: "power2.out"
+});
+
+// Optional: Add a subtle animation for the image inside this container
+gsap.from(container.querySelector(".image-container"), {
+    scrollTrigger: {
+        trigger: container, // Use the current container as the trigger
+        start: "top center",
+        end: "center center",
+        scrub: 2, // Increased scrub value for slower response to scroll
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1.5, // Adjusted duration for the image animation
+});
+});
+
+// Optional: Add a resize listener to refresh ScrollTrigger
+window.addEventListener('resize', () => {
+  ScrollTrigger.refresh();
+});
 
 
 
@@ -80,9 +143,13 @@ let mysketch = new sketch();
 
 
 
-function moveCamera(currentScrollPosition) {
+
+
+
+function moveCamera() {
   
-  const t = currentScrollPosition*-1;
+  const t = document.body.getBoundingClientRect().top;
+ 
 
   console.log('this is value of t ' , t);
  
@@ -135,7 +202,7 @@ function moveCamera(currentScrollPosition) {
   }
 }
 
-const carsul = [...document.querySelectorAll('.carousel')]
+
 
 
 

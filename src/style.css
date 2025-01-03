@@ -1,7 +1,19 @@
 
+
+html {
+  scroll-behavior: smooth;
+}
+
+
 .animated-element {
-  transform: translate3d(0, 0, 0);
+  
   will-change: transform, opacity;
+}
+
+.animated-heading {
+  opacity: 0; /* Start with opacity 0 */
+  transform: translateX(-100px); /* Start position off-screen to the left */
+
 }
 
 
@@ -865,8 +877,10 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
     bottom: 15%;
     max-width: 80%;}
 
-
- 
+    .studys{
+      font-size: 1.6rem; line-height: 31.6px; font-weight: bold;
+    }
+   
    @media all and (max-width: 500px) {
     .container {
       display: flex;
@@ -977,7 +991,7 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
     #greeting-div {
       position: absolute;
       left: 5%;
-      top: 20%;
+      top: 18%;
       font-size: 4rem;}
     
 /* Hide checkboxes */
@@ -1070,9 +1084,7 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
     h1, h2, blockquote {
       font-size: 31.5px;}
 
-    .studys{
-      font-size: 17px; line-height: 23.6px; font-weight: bold;
-    }
+
     .grid-container {
       grid-template-columns: 1fr;
     width: 254px;
@@ -1222,7 +1234,7 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
   }
 
   footer {
-    width: 97vw;
+    width: 105vw;
   }
   #projectover {
     margin-top: 60px; /* Reduced from 82px to 40px to decrease the distance */
@@ -1258,7 +1270,7 @@ grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
     .loader-percentage {
  
         position: absolute;
-        right: 5%;
+        right: 15%;
         bottom: 25%;
 
       font-size: 20vw;}
